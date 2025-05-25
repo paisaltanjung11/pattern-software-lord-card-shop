@@ -1,0 +1,59 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Site.master.cs" Inherits="Project_LordCardShop.Views.SiteMaster" %>
+
+<!DOCTYPE html>
+<html lang="en">
+<head runat="server">
+    <title>Lord Card Shop</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet" />
+    <asp:ContentPlaceHolder ID="head" runat="server">
+    </asp:ContentPlaceHolder>
+</head>
+<body>
+    <form id="form1" runat="server">
+        <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+            <a class="navbar-brand" href="~/Views/Home.aspx">Lord Card Shop</a>
+            <div class="collapse navbar-collapse">
+                <ul class="navbar-nav mr-auto">
+                    <%-- Panel untuk Guest --%>
+                    <asp:Panel ID="pnlGuestNav" runat="server" Visible="false" CssClass="navbar-nav">
+                        <li class="nav-item"><a class="nav-link" href="~/Views/Login.aspx">Login</a></li>
+                        <li class="nav-item"><a class="nav-link" href="~/Views/Register.aspx">Register</a></li>
+                    </asp:Panel>
+                    
+                    <%-- Panel untuk Customer --%>
+                    <asp:Panel ID="pnlCustomerNav" runat="server" Visible="false" CssClass="navbar-nav">
+                        <li class="nav-item"><a class="nav-link" href="~/Views/Home.aspx">Home</a></li>
+                        <li class="nav-item"><a class="nav-link" href="~/Views/OrderCard.aspx">Order Card</a></li>
+                        <li class="nav-item"><a class="nav-link" href="~/Views/History.aspx">History</a></li>
+                        <li class="nav-item"><a class="nav-link" href="~/Views/Profile.aspx">Profile</a></li>
+                        <li class="nav-item"><a class="nav-link" href="~/Views/Cart.aspx">Cart</a></li>
+                    </asp:Panel>
+                    
+                    <%-- Panel untuk Admin --%>
+                    <asp:Panel ID="pnlAdminNav" runat="server" Visible="false" CssClass="navbar-nav">
+                        <li class="nav-item"><a class="nav-link" href="~/Views/Home.aspx">Home</a></li>
+                        <li class="nav-item"><a class="nav-link" href="~/Views/ManageCard.aspx">Manage Card</a></li>
+                        <li class="nav-item"><a class="nav-link" href="~/Views/TransactionHistory.aspx">Transaction History</a></li>
+                        <li class="nav-item"><a class="nav-link" href="~/Views/TransactionReport.aspx">Transaction Report</a></li>
+                        <li class="nav-item"><a class="nav-link" href="~/Views/OrderQueue.aspx">Order Queue</a></li>
+                        <li class="nav-item"><a class="nav-link" href="~/Views/Profile.aspx">Profile</a></li>
+                    </asp:Panel>
+                </ul>
+                
+                <asp:Label ID="lblWelcome" runat="server" CssClass="navbar-text text-white mr-3"></asp:Label>
+                <asp:TextBox ID="txtSearch" runat="server" CssClass="form-control mr-sm-2" placeholder="Search Card Name"></asp:TextBox>
+                <asp:Button ID="btnSearch" runat="server" Text="Search" CssClass="btn btn-outline-success my-2 my-sm-0" OnClick="btnSearch_Click" />
+                
+                <asp:Panel ID="pnlLogout" runat="server" Visible="false" CssClass="navbar-nav">
+                    <asp:LinkButton ID="btnLogout" runat="server" CssClass="nav-link" OnClick="btnLogout_Click">Logout</asp:LinkButton>
+                </asp:Panel>
+            </div>
+        </nav>
+
+        <div class="container mt-4">
+            <asp:ContentPlaceHolder ID="MainContent" runat="server">
+            </asp:ContentPlaceHolder>
+        </div>
+    </form>
+</body>
+</html>
